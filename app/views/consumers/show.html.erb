@@ -1,0 +1,29 @@
+<html>
+<body bgcolor = #E3F2FD style = "padding: 20px 80px 20px 80px;">
+  <div>
+    <br>
+    <table border="1" cellpadding="10">
+    <tr>
+      <td>Name</td>
+      <td><%= @consumer.first_name + " " + @consumer.last_name %></td>
+    </tr>
+
+    <tr>
+      <td>Phone Number</td>
+      <td><%= @consumer.phone %></td>
+    </tr>
+
+    <tr>
+      <td>Email</td>
+      <td><%= @consumer.email %></td>
+    </tr>
+
+    <tr>
+      <td>Address</td>
+      <td><%= @consumer.address + ", " +  @consumer.city + ", " + @consumer.state + ", " +
+      @consumer.country + ", Zip Code " + @consumer.zip_code.to_s %></td>
+    </tr>
+   
+  </div>
+</body>
+</html>

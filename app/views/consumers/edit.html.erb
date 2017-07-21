@@ -1,5 +1,4 @@
-<h1>Hello Consumer</h1>
-Enter your details to sign up
+<h1>Edit</h1>
 <br><br>
 <% if @consumer.errors.any? %>
   <div id="error_explanation">
@@ -53,12 +52,8 @@ Enter your details to sign up
   <tr>
   	<td>Email</td>
     <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-  	<td>Password</td>
-    <td><%= f.password_field :password %></td>
-  </tr>
+  </tr> 
 </table>
 
- <p><%= f.submit 'Sign Up'%></p> 
+ <p><%= f.submit 'Update'%></p> 
 <% end %>

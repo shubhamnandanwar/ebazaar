@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170717070401) do
+ActiveRecord::Schema.define(version: 20170721070136) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20170717070401) do
     t.string "state", null: false
     t.string "country", null: false
     t.integer "zip_code", null: false
+    t.string "password_hash"
+    t.string "password_salt"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -77,7 +79,6 @@ ActiveRecord::Schema.define(version: 20170717070401) do
     t.datetime "updated_at", null: false
     t.bigint "consumer_id", null: false
     t.index ["consumer_id"], name: "index_orders_on_consumer_id"
-    t.index ["country"], name: "index_orders_on_country"
   end
 
   create_table "products", force: :cascade do |t|
@@ -87,7 +88,6 @@ ActiveRecord::Schema.define(version: 20170717070401) do
     t.bigint "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 
