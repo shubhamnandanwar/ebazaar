@@ -11,6 +11,9 @@ class ConsumersController < ApplicationController
   def create
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
+      cart = Cart.new
+      cart.consumer_id = @consumer.id
+      cart.save
       redirect_to consumers_path
     else
       render 'new'

@@ -1,18 +1,13 @@
 <body bgcolor = #E3F2FD>
-<div align = "center" >
+<div style = "padding: 20px 80px 20px 80px;">
 	<br>
 	<hr />
 	<h2 style = "color:#2196F3" ><%= @category.name %></h2>
 	<hr />
 	<br><br>
-	<table border="1" cellpadding="10"; table-layout: fixed; width = "80%";>
-		<col width="30%" />
-		<col width="5%" />
-		<col width="55%" />
-		<col width="5%" />
-		<col width="5%" />
+
 		<%= render @category.products %>
-	</table>
+
 	<br><br>
 	<button><%= link_to 'Add Product',new_category_product_path(@category)  %></button> 
 </div>

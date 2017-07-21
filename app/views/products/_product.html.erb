@@ -1,9 +1,17 @@
-<tr>
-	<td><%= link_to product.name, category_product_path(product.category.id, product.id) %></td>
-	<td><%= product.price %></td>
-	<td><%= product.description %></td>
-	<td><%= link_to 'Edit', edit_category_product_path(product.category.id, product.id) %></td>
-	<td><%= link_to 'Destroy', category_product_path(product.category.id, product.id),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<div style = "border:1px solid black; padding:1em;">
+	<%= link_to product.name, category_product_path(product.category.id, product.id) %>
+	<br><br>
+	Price : <%= product.price %>
+	<br><br>
+	<button><%= link_to 'Add To Cart', edit_category_product_path(product.category.id, product.id) %></button>
+	<div  style="float: right;">
+		<button><%= link_to 'Edit', edit_category_product_path(product.category.id, product.id) %>
+		</button>
+
+		&nbsp;
+
+		<button><%= link_to 'Destroy', category_product_path(product.category.id, product.id),
+		method: :delete, data: { confirm: 'Are you sure?' } %></button>
+	</div>
+  <br>
+</div>
