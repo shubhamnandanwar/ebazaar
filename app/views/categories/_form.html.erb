@@ -13,13 +13,8 @@
 <% end %>
 
 <%= form_for @category do |f| %>
- 
   <p>Name<br>
     <%= f.text_field :name %>
   </p>
- 
-  <p>
-    <%= f.submit %>
-  </p>
- 
+  <p><%= f.submit %></p>
 <% end %>

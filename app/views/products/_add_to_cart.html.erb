@@ -1,0 +1,4 @@
+<button><%= link_to 'Add To Cart',
+ add_to_cart_path(:product_id => locals[:product_id], :price => locals[:price]),
+ remote: true, format: 'js' %>
+</button>

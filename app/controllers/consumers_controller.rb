@@ -11,8 +11,7 @@ class ConsumersController < ApplicationController
   def create
     @consumer = Consumer.new(consumer_params)
     if @consumer.save
-      cart = Cart.new
-      cart.consumer_id = @consumer.id
+      cart = Cart.new(consumer_id:  @consumer.id)
       cart.save
       redirect_to consumers_path
     else
@@ -26,7 +25,6 @@ class ConsumersController < ApplicationController
 
   def update
     @consumer = Consumer.find(params[:id])
-    
     if @consumer.update(consumer_params)
       redirect_to consumers_path
     else
@@ -46,8 +44,8 @@ class ConsumersController < ApplicationController
 
   private
     def consumer_params
-      params.require(:consumer).permit(:first_name, :last_name, :phone, :email, :address,
-        :city, :state, :country, :zip_code, :password)
+      params.require(:consumer).permit(:first_name, :last_name, :phone, :email, :email_confirmation, :address,
+        :city, :state, :country, :zip_code, :password, :password_confirmation)
     end
   
 end

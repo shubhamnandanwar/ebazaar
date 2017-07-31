@@ -1,15 +1,6 @@
 <html>
 <body bgcolor = #E3F2FD>
-  <div align = "right">  
-    <% if current_user %>
-    Logged in as <%= current_user.email %>.
-    <%= link_to "Log out", log_out_path %>
-  <% else %>
-    <%= link_to "Sign up", sign_up_path %> or
-    <%= link_to "log in", log_in_path %>
-  <% end %>
-  </div>
-  
+	
   <div align = "center">
     <p >
       <h1 style = "color:#2196F3";>Welcome to E Bazaar</h1>
@@ -17,14 +8,7 @@
     </p>
   </div>
 
-  <div>
-    <br>
-    <h1>Categories</h1>
-    <% @categories.each do |category| %>
-    <ul>
-      <li><%= link_to category.name, category_path(category) %></li>
-    </ul>
-    <% end %>
-  </div>
+  <%= get_page %>
+  
 </body>
 </html>

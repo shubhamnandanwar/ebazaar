@@ -1,14 +1,20 @@
 <body bgcolor = #E3F2FD>
+
 <div style = "padding: 20px 80px 20px 80px;">
-	<br>
-	<hr />
-	<h2 style = "color:#2196F3" ><%= @category.name %></h2>
-	<hr />
-	<br><br>
-
-		<%= render @category.products %>
-
-	<br><br>
-	<button><%= link_to 'Add Product',new_category_product_path(@category)  %></button> 
+  <br>
+  <hr />
+  <h2 style = "color:#2196F3" ><%= @category.name %></h2>
+  <hr />
+  <br><br>
+  <table>
+    <%= render @category.products %>
+  </table>
+  <br><br>
+  <% if current_user && current_user.is_admin? %>
+  	<button><%= link_to 'Add Product', new_product_path  %></button>
+  <% end %>
 </div>
+<%= link_to 'Back',root_path %>
 </body>
+
+<script src =  'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>

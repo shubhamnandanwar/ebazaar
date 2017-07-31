@@ -1,0 +1,2 @@
+$('#add-remove-button-<%= @cart_item.product.id %>').replaceWith("<%= escape_javascript( render 'products/remove_item', :locals => {:product_id => @cart_item.product.id} ) %>");
+$('#header').load(location.href + " #header");

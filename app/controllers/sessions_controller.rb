@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    consumer = Consumer.where("email = ?", params[:email]).first
+    consumer = Consumer.user params[:email] 
     if consumer && consumer.authenticate(params[:password])
       session[:consumer_id] = consumer.id
 
@@ -14,7 +14,6 @@ class SessionsController < ApplicationController
         #expires at the end of the browser session
         cookies.signed[:consumer_id] = consumer.id
       end
-
       redirect_to root_path, :notice => "Logged in successfully"
     else
       flash.now[:alert] = "Invalid login/password combination"
@@ -25,6 +24,7 @@ class SessionsController < ApplicationController
   def destroy
     cookies.delete :consumer_id
     session[:consumer_id] = nil
+    session[:cart_id] = nil
     redirect_to root_path, :notice => "You successfully logged out"
   end
 end

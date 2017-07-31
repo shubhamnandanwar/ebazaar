@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
-  
+
+  before_action :init_cart_item_ids , only: :show
   def index
     @categories = Category.all
   end
@@ -23,7 +24,6 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:id])
-    
     if @category.update(category_params)
       redirect_to categories_path
     else
@@ -38,12 +38,17 @@ class CategoriesController < ApplicationController
   def destroy
     category = Category.find(params[:id])
     category.destroy
- 
     redirect_to categories_path
   end
 
   private
-    def category_params
-      params.require(:category).permit(:name)
+  def category_params
+    params.require(:category).permit(:name)
+  end
+
+  def init_cart_item_ids
+    if current_user
+      @cart_item_ids = current_user.cart.cart_items.pluck(:product_id)
     end
+  end
 end

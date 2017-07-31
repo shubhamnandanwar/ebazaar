@@ -1,0 +1,19 @@
+<tr id = "cart_item-<%= cart_item.id %>"><td>
+<div style = "border:1px solid black; padding:1em;">
+  <%= link_to cart_item.product.name, product_path(cart_item.product_id) %>
+  <br><br>
+  Price : <%= cart_item.product.price %>
+  &nbsp;&nbsp;&nbsp;
+  Quantity : 1
+  <br><br>
+  <button><%= link_to 'Remove',
+  :product_id => cart_item.product_id,
+  :action => "remove_item", 
+  :controller => "carts",
+  :remote => true, 
+  :method => :delete,
+  is_cart: true %>
+  </button>
+  <br>
+</div></td>
+</tr>

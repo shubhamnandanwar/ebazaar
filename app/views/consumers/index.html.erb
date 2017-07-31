@@ -1,28 +1,25 @@
 <body bgcolor = #E3F2FD>
-<div align="center">
-<h1 style = "color:#2196F3">Listing Consumer</h1>
-<hr />
-<br>
-<table border="1" cellpadding="10">
-  <tr>
-    <th>Name</th>
-    <th>Phone</th>
-    <th>Email</th>
-    <th>Address</th>
-  </tr>
+  <div align="center">
+    <h1 style = "color:#2196F3">Listing Consumer</h1>
+    <hr /><br>
+    <table border="1" cellpadding="10">
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+      </tr>
  
-  <% @consumers.each do |consumer| %>
-    <tr>
-      <td><%= link_to (consumer.first_name + " " + consumer.last_name), consumer_path(consumer.id) %></td>
-      <td><%= consumer.phone%></td>
-      <td><%= consumer.email%></td>
-      <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
-      <td><%= link_to 'Destroy', consumer_path(consumer),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
-<br><br>
-</div>
+      <% @consumers.each do |consumer| %>
+        <tr>
+          <td><%= link_to consumer.user_name, consumer_path(consumer) %></td>
+          <td><%= consumer.phone%></td>
+          <td><%= consumer.email%></td>
+          <td><%= link_to 'Edit', edit_consumer_path(consumer) %></td>
+          <td><%= link_to 'Destroy', consumer_path(consumer), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </table>
+    <br><br>
+  </div>
 </body>

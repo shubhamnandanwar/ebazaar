@@ -4,4 +4,6 @@ class CartItem < ApplicationRecord
   validates :price, :numericality => { :greater_than_or_equal_to => 0 }
 
   validates_presence_of :quantity, :price, :product_id, :cart_id
+
+  scope :by_product_id, -> (product_id) { where(product_id: product_id) }
 end

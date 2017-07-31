@@ -1,15 +1,21 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
+  resources :consumers 
+  resources :cart_items
+  resources :carts
+  resources :categories
+  resources :products
+
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
+  
   get "sign_up" => "consumers#new", :as => "sign_up"
+  get "profile" => "consumers#profile"
 
-  resources :consumers
-
-  resources :categories do
-  	resources :products
-  end
+  get 'add_to_cart' => 'carts#add_to_cart'
+  get 'remove_item' => 'carts#remove_item'
+  get 'viewcart' => 'carts#view_cart'
 
   resources :sessions, only: [:new, :create, :destroy]
 
